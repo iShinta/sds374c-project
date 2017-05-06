@@ -2,7 +2,22 @@
 #include <stdlib.h>
 #include <time.h>
 
-void importdata(){
+// void importdata(){
+//
+// }
+
+// void runalgo(){
+//
+// }
+//
+// void runparallelalgo(){
+//
+// }
+
+void
+
+int main(){
+
   int BUFSIZE = 32767; //max number of lines
   char** words = (**char)malloc(sizeof(*char));
   FILE *fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
@@ -23,21 +38,9 @@ void importdata(){
   for(j = 0; j < i; j++){
     printf("%s\n", words);
   }
-}
 
-// void runalgo(){
-//
-// }
-//
-// void runparallelalgo(){
-//
-// }
-
-void
-
-int main(){
   //Import data from Netflix
-  importdata();
+  // importdata();
 
   //Run algorithm
   // runalgo();

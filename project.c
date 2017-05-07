@@ -33,6 +33,11 @@ int main(){
   int **rating_array = (int**)malloc(sizeof(int)*10000); //10000 movies
   for(ii = 0; ii < 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
+    if(rating_array[ii] == NULL)
+    {
+        fprintf(stderr, "out of memory\n");
+        exit(1);
+    }
   }
   // printf("Hello");
   for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
@@ -142,6 +147,7 @@ int main(){
     free(words);
   }
 
+  printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
   for(ii = 0; ii < 10000; ii++){
     int k;

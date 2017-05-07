@@ -30,7 +30,7 @@ int main(){
     user_array[ii] = -1; //Assign default value
   }
   // Ratings array
-  int **rating_array = (int**)malloc(sizeof(int*)*10000); //10000 movies
+  int **rating_array = (int**)malloc(sizeof(int*)*20000); //10000 movies
   for(ii = 0; ii < 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
     // if(rating_array[ii] == NULL)
@@ -50,7 +50,7 @@ int main(){
   // }
   // Movie average array
   double *movie_average_array;
-  movie_average_array = (double *)malloc(sizeof(double)*20000); //10000 movies
+  movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
 
   printf("----- Read Files -----\n");
   // Open the file

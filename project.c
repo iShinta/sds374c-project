@@ -169,7 +169,6 @@ int main(){
         free(words[i]);
     free(words);
   }
-  printf("------ Nb Sampling Users: %i ------\n", max_user);
 
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
@@ -195,7 +194,7 @@ int main(){
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
   for(ii = 0; ii < nb_user; ii++){ //Go through users
-    printf("------ User %i Average ------\n", ii);
+    printf("------ User %i / %i Average ------\n", ii, max_user);
     int k;
     int sum = 0;
     int count = 0;

@@ -60,22 +60,22 @@ int main(){
     // printf("----- Read Files %i -----\n", ii);
     char strlink_beg[50] = "../project_data/training_data/mv_";
     if(ii<10){
-      strcpy(strlink_beg, "000000");
+      strcat(strlink_beg, "000000");
     }else if(ii<100){
-      strcpy(strlink_beg, "00000");
+      strcat(strlink_beg, "00000");
     }else if(ii<1000){
-      strcpy(strlink_beg, "0000");
+      strcat(strlink_beg, "0000");
     }else if(ii<10000){
-      strcpy(strlink_beg, "000");
+      strcat(strlink_beg, "000");
     }else if(ii<100000){
-      strcpy(strlink_beg, "00");
+      strcat(strlink_beg, "00");
     }else if(ii<1000000){
-      strcpy(strlink_beg, "0");
+      strcat(strlink_beg, "0");
     }
     char ii_nb[20];
     sprintf(ii_nb, "%d", ii);
-    strcpy(strlink_beg, ii_nb);
-    strcpy(strlink_beg, ".txt");
+    strcat(strlink_beg, ii_nb);
+    strcat(strlink_beg, ".txt");
     printf(strlink_beg);
 
     fp = fopen(strlink_beg, "r");

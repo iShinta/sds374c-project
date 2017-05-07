@@ -20,7 +20,7 @@ int main(){
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
-  int nb_movies = 30; //4444
+  int nb_movies = 20; //4444
   /* Allocate lines of text */
   char **words;
   // User translation table
@@ -180,7 +180,7 @@ int main(){
     }
     printf("Movie Sum: %i\n", sum);
     printf("Movie Counter: %i\n", counter);
-    printf("Movie Average (Calcul): %d\n", (double)sum/counter);
+    printf("Movie Average (Calcul): %d\n", (double)sum/(double)counter);
     movie_average_array[ii] = (double)sum/counter;
     printf("Movie Average: %d\n", *movie_average_array[ii]);
   }

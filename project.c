@@ -72,7 +72,9 @@ int main(){
     }else if(ii<1000000){
       strcpy(strlink_beg, "0");
     }
-    strcpy(strlink_beg, ii);
+    char ii_nb[20];
+    itoa(ii, ii_nb, 10);
+    strcpy(strlink_beg, ii_nb);
     strcpy(strlink_beg, ".txt");
     printf(strlink_beg);
 

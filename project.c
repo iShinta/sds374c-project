@@ -34,7 +34,15 @@ int main(){
   for(ii = 0; ii <= 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
   }
-
+  for(ii = 0; ii <= 10000; ii++){ //Initialization of all at -1
+    int j;
+    for(j = 0; j < 481000; j++){
+      rating_array[ii][j] = -1;
+    }
+  }
+  // Movie average array
+  double *movie_average_array;
+  movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
 
   printf("----- Read Files -----\n");
   // Open the file
@@ -101,6 +109,7 @@ int main(){
     // Split per ",". First is UserID, Second is Ratings
     // Saving UserID in Translation table
     // Assign Rating 2D matrix with new UserID
+    // j is the current line, i is the total number of lines
     int j;
     for(j = 1; j < i; j++){ //Don't include 0 which is the first line which is the ID of the movie
       //User
@@ -121,10 +130,7 @@ int main(){
       //Rating
       pt = strtok(NULL, ",");
       int movie_nb = atoi(strtok(words[0], ":"));
-      printf("Second %i\n", movie_nb);
       rating_array[movie_nb][k] = atoi(pt); //Position is k
-
-      printf("Third %s\n", words[j]);
     }
 
     /* Good practice to free memory */
@@ -133,17 +139,25 @@ int main(){
     free(words);
   }
 
+  //Calculate Movie averages
+  for(ii = 0; i < 10000; i++){
+    int k;
+    int counter = 0;
+    int sum = 0;
+    for(k = 0; k < 481000 ; k++){
+      if(rating_array[ii][k] != -1){
+        counter++;
+        sum+=rating_array[ii][k];
+      }
+    }
+    movie_average_array[ii] = (double)sum/counter;
+  }
+
+
+  //Calculate User Offset
+
+  //Prediction
+
   printf("----- Program End -----\n");
   return 0;
-
-
-  //Import data from Netflix
-  // importdata();
-
-  //Run algorithm
-  // runalgo();
-
-  //Run parallel algorithm
-  // runparallelalgo();
-
 }

@@ -102,7 +102,7 @@ int main(){
     // Saving UserID in Translation table
     // Assign Rating 2D matrix with new UserID
     int j;
-    for(j = 0; j < i; j++){
+    for(j = 1; j < i; j++){ //Don't include 0 which is the first line which is the ID of the movie
       //User
       char *pt = strtok(words[j], ",");
       //printf("First %s\n", pt);
@@ -110,18 +110,19 @@ int main(){
       int k;
       for(k = 0; k < 481000; k++){
         if(user_array[k] == atoi(pt)){
-          printf("Found");
+          //printf("Found");
           break;
         }else if(user_array[k] == -1){
           user_array[k] = atoi(pt);
           break;
         }
       }
-      printf("Indice %i\n", k);
 
       //Rating
       pt = strtok(NULL, ",");
-      printf("Second %s\n", pt);
+      int movie_nb = atoi(strtok(words[0], ":"));
+      printf("Second %i\n", movie_nb);
+      rating_array[movie_nb][k] = atoi(pt); //Position is k
 
       printf("Third %s\n", words[j]);
     }

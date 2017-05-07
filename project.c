@@ -31,7 +31,7 @@ int main(){
   }
   // Ratings array
   int **rating_array = (int**)malloc(sizeof(int*)*10000); //10000 movies
-  for(ii = 0; ii <= 10000; ii++){
+  for(ii = 0; ii < 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
   }
   // printf("Hello");

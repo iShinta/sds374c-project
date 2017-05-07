@@ -140,7 +140,7 @@ int main(){
   }
 
   //Calculate Movie averages
-  for(ii = 0; i < 10000; i++){
+  for(ii = 0; ii < 10000; ii++){
     int k;
     int counter = 0;
     int sum = 0;

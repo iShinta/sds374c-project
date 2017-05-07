@@ -58,28 +58,25 @@ int main(){
     }
 
     // printf("----- Read Files %i -----\n", ii);
-    char strlink_beg = "../project_data/training_data/mv_";
-    char strlink_mid;
-    char strlink_nb;
-    char strlink_end;
+    char strlink_beg[50] = "../project_data/training_data/mv_";
     if(ii<10){
-      strlink_mid = strcat(strlink_beg, "000000");
+      strcpy(strlink_beg, "000000");
     }else if(ii<100){
-      strlink_mid = strcat(strlink_beg, "00000");
+      strcpy(strlink_beg, "00000");
     }else if(ii<1000){
-      strlink_mid = strcat(strlink_beg, "0000");
+      strcpy(strlink_beg, "0000");
     }else if(ii<10000){
-      strlink_mid = strcat(strlink_beg, "000");
+      strcpy(strlink_beg, "000");
     }else if(ii<100000){
-      strlink_mid = strcat(strlink_beg, "00");
+      strcpy(strlink_beg, "00");
     }else if(ii<1000000){
-      strlink_mid = strcat(strlink_beg, "0");
+      strcpy(strlink_beg, "0");
     }
-    strlink_nb = strcat(strlink_mid, ii);
-    strlink_end = strcat(strlink_nb, ".txt");
-    printf(strlink_end);
+    strcpy(strlink_beg, ii);
+    strcpy(strlink_beg, ".txt");
+    printf(strlink_beg);
 
-    fp = fopen(strlink_end, "r");
+    fp = fopen(strlink_beg, "r");
     if (fp == NULL)
     {
         fprintf(stderr,"Error opening file.\n");

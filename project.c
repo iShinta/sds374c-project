@@ -73,7 +73,7 @@ int main(){
       strcpy(strlink_beg, "0");
     }
     char ii_nb[20];
-    itoa(ii, ii_nb, 10);
+    sprintf(ii_nb, "%d", ii);
     strcpy(strlink_beg, ii_nb);
     strcpy(strlink_beg, ".txt");
     printf(strlink_beg);

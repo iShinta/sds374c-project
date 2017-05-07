@@ -30,14 +30,14 @@ int main(){
     user_array[ii] = -1; //Assign default value
   }
   // Ratings array
-  int **rating_array = (int**)malloc(sizeof(int)*10000); //10000 movies
+  int **rating_array = (int**)malloc(sizeof(int*)*10000); //10000 movies
   for(ii = 0; ii < 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
-    if(rating_array[ii] == NULL)
-    {
-        fprintf(stderr, "out of memory\n");
-        exit(1);
-    }
+    // if(rating_array[ii] == NULL)
+    // {
+    //     fprintf(stderr, "out of memory\n");
+    //     exit(1);
+    // }
   }
   // printf("Hello");
   for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1

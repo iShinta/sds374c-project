@@ -48,7 +48,7 @@ int main(){
       rating_array[ii][j] = -1;
     }
   }
-  Movie average array
+  // Movie average array
   double *movie_average_array;
   movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
 

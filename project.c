@@ -154,7 +154,7 @@ int main(){
     int counter = 0;
     int sum = 0;
     for(k = 0; k < 481000 ; k++){
-      if(rating_array[ii][k] != NULL){
+      if(rating_array[ii][k] != 0){
         counter++;
         sum+=rating_array[ii][k];
       }

@@ -34,9 +34,12 @@ int main(){
   for(ii = 0; ii <= 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
   }
+  printf("Hello");
   for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
+    printf("Wesh");
     int j;
     for(j = 0; j < 481000; j++){
+      printf("Bro%i", j)
       rating_array[ii][j] = -1;
     }
   }

@@ -50,7 +50,7 @@ int main(){
   // }
   // Movie average array
   double *movie_average_array;
-  movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
+  movie_average_array = (double *)malloc(sizeof(double)*20000); //10000 movies
 
   printf("----- Read Files -----\n");
   // Open the file

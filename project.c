@@ -98,9 +98,12 @@ int main(){
     int j;
     for(j = 0; j < i; j++){
       char *pt = strtok(words[j], ",");
-      printf("%s\n", pt);
+      printf("First %s\n", pt);
 
-      printf("%s\n", words[j]);
+      pt = strtok(words[j], ",");
+      printf("Second %s\n", pt);
+
+      printf("Third %s\n", words[j]);
     }
 
     /* Good practice to free memory */

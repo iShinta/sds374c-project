@@ -20,7 +20,7 @@ int main(){
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
-  int nb_movies = 5000;
+  int nb_movies = 4444;
   /* Allocate lines of text */
   char **words;
   // User translation table

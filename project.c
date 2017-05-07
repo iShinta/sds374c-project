@@ -179,7 +179,7 @@ int main(){
     int k;
     counter = 0;
     sum = 0;
-    for(k = 0; k < nb_user ; k++){
+    for(k = 0; k < max_user ; k++){
       if(rating_array[ii][k] != -1){
         counter++;
         sum+=rating_array[ii][k];
@@ -193,7 +193,7 @@ int main(){
 
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
-  for(ii = 0; ii < nb_user; ii++){ //Go through users
+  for(ii = 0; ii < max_user; ii++){ //Go through users
     printf("------ User %i / %i Average ------\n", ii, max_user);
     int k;
     int sum = 0;

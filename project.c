@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <omp.h>
 
 // void importdata(){
 //
@@ -16,7 +17,12 @@
 // }
 
 int main(){
+  double i0, i1, i2, i3, i4, i5, i6;
   printf("----- Program Start -----\n");
+
+  //Chrono 1
+  i0 = clock();
+
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
@@ -50,6 +56,9 @@ int main(){
   // User movie average array
   double *user_movie_average_array;
   user_movie_average_array = (double *)malloc(sizeof(double)*nb_user); //5000 movies
+
+  //Chrono 1
+  i1 = clock();
 
   printf("----- Read Files -----\n");
   // Open the file
@@ -170,6 +179,9 @@ int main(){
     free(words);
   }
 
+  //Chrono 2
+  i2 = clock();
+
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
   int tt_counter = 0;
@@ -201,6 +213,9 @@ int main(){
   // Global Average
   tt_average = (double)tt_sum/tt_counter;
 
+  //Chrono 3
+  i3 = clock();
+
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
   for(ii = 0; ii < max_user; ii++){ //Go through users
@@ -219,6 +234,9 @@ int main(){
     user_movie_average_array[ii] = (double)sum/count - tt_average; // Offset
     printf("User Movie Offset: %f / %f\n", user_movie_average_array[ii], tt_average);
   }
+
+  //Chrono 4
+  i4 = clock();
 
   //Prediction
   printf("----- Read Probe File -----\n");
@@ -280,6 +298,9 @@ int main(){
   /* Close file */
   fclose(fp2);
 
+  //Chrono 5
+  i5 = clock();
+
   int j;
   int movie_id_pred = 1; //Change to any movie index (here 1)
   printf("----- Prediction Movie %i -----\n", movie_id_pred);
@@ -290,7 +311,7 @@ int main(){
     int k;
     for(k = 0; k < max_user; k++){
       if(user_array[k] == atoi(words[j])){
-        printf("Trouve!");
+        // printf("Trouve!");
         break;
       }
     }
@@ -301,6 +322,31 @@ int main(){
     //Add User's Offset
     printf("Prediction for user %i is %f\n", atoi(words[j]), movie_score + user_movie_average_array[k]);
   }
+
+  //Chrono 6
+  i6 = clock();
+
+  printf("\n\n\nSummary\n");
+  // printf("-------\n");
+  // printf("Number of elements in a row/column        ::              %i\n", n);
+  // printf("Number of inner elements in a row/column  ::              %i\n", n-2);
+  // printf("Total number of elements                  ::              %i\n", n*n);
+  // printf("Total number of inner elements            ::              %i\n", (n-2)*(n-2));
+  // printf("Memory (GB) used per array                ::              %f\n", sizeof(double)*n*n);
+  // printf("Threshold                                 ::              %3.2f\n", t);
+  // printf("Smoothing constants (a, b, c)             ::              %3.2f %3.2f %3.2f\n", a, b, c);
+  // printf("Number    of elements below threshold (X) ::              %i\n", resx);
+  // printf("Fraction  of elements below threshold     ::              %f\n", ((double)resx/(n*n)));
+  // printf("Number    of elements below threshold (Y) ::              %i\n", resy);
+  // printf("Fraction  of elements below threshold     ::              %f\n", ((double)resy/((n-2)*(n-2))));
+  // printf("\nAction        ::  time/s    Time Resolution = 1.0E-04\n");
+  printf("-------\n");
+  printf("CPU: Variables Initialization       ::  %f\n", (i1 - i0) / (float)CLOCKS_PER_SEC);
+  printf("CPU: Files Reading & Matrix Filling ::  %f\n", (i2 - i1) / (float)CLOCKS_PER_SEC);
+  printf("CPU: Calculate Movie Averages       ::  %f\n", (i3 - i2) / (float)CLOCKS_PER_SEC);
+  printf("CPU: Calculate User Offset          ::  %f\n", (i4 - i3) / (float)CLOCKS_PER_SEC);
+  printf("CPU: Users to Predict Reading       ::  %f\n", (i5 - i4) / (float)CLOCKS_PER_SEC);
+  printf("CPU: Users Movie Prediction         ::  %f\n", (i6 - i5) / (float)CLOCKS_PER_SEC);
 
   printf("----- Program End -----\n");
   return 0;

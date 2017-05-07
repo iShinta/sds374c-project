@@ -76,19 +76,20 @@ int main(){
         for (j=strlen(words[i])-1;j>=0 && (words[i][j]=='\n' || words[i][j]=='\r');j--)
           ;
           words[i][j+1]='\0';
+
+        /* Close file */
+        fclose(fp);
+
+        // int j;
+        // for(j = 0; j < i; j++)
+        //     printf("%s\n", words[j]);
+
+        /* Good practice to free memory */
+        for (;i>=0;i--)
+            free(words[i]);
+        free(words);
     }
 
-    /* Close file */
-    fclose(fp);
-
-    // int j;
-    // for(j = 0; j < i; j++)
-    //     printf("%s\n", words[j]);
-
-    /* Good practice to free memory */
-    for (;i>=0;i--)
-        free(words[i]);
-    free(words);
   }
 
   return 0;

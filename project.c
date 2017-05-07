@@ -182,7 +182,7 @@ int main(){
     printf("Movie Counter: %i\n", counter);
     printf("Movie Average (Calcul): %d\n", (double)sum/(double)counter);
     movie_average_array[ii] = (double)sum/counter;
-    printf("Movie Average: %d\n", *movie_average_array[ii]);
+    printf("Movie Average: %d\n", movie_average_array[ii]);
   }
 
   printf("----- Calculate User Offsets -----\n");

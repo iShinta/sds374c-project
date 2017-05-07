@@ -284,7 +284,7 @@ int main(){
 
     int j;
     for(j = 0; j < i; j++){
-      printf(words[j]);
+      printf("%s\n", words[j]);
     }
   }
 

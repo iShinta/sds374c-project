@@ -31,7 +31,8 @@ int main(){
   printf("----- Read Files -----");
   // Open the file
   FILE *fp;
-  for(int ii = 0; ii <= 10000 ; ii++){
+  int ii;
+  for(ii = 0; ii <= 10000 ; ii++){
     printf("----- Read File " + ii + " -----");
     *fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
     if (fp == NULL)

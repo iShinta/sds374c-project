@@ -282,7 +282,7 @@ int main(){
 
   int j;
   for(j = 1; j < i; j++){
-    printf("%s\n", words[j]);
+    printf("%i\n", atoi(words[j]));
   }
 
   printf("----- Program End -----\n");

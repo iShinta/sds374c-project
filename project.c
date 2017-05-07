@@ -234,7 +234,7 @@ int main(){
     }
 
     printf("------ Read Movie %i ------\n", ii);
-    fp2 = fopen("../project_data/training_data/probe.txt", "r");
+    fp2 = fopen("../project_data/probe.txt", "r");
     if (fp2 == NULL)
     {
         fprintf(stderr,"Error opening file.\n");

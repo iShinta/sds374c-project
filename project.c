@@ -202,6 +202,8 @@ int main(){
         sum += rating_array[k][ii];
       }
     }
+    printf("User Movie Sum: %i\n", sum);
+    printf("User Movie Counter: %i\n", count);
     user_movie_average_array[ii] = (double)sum/count;
     printf("User Movie Average: %f\n", user_movie_average_array[ii]);
   }

@@ -40,15 +40,15 @@ int main(){
     // }
   }
   // printf("Hello");
-  // for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
-  //   printf("Wesh%i\n", ii);
-  //   int j;
-  //   for(j = 0; j < 481000; j++){
-  //     // printf("Bro%i", j);
-  //     rating_array[ii][j] = -1;
-  //   }
-  // }
-  // Movie average array
+  for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
+    printf("Wesh%i\n", ii);
+    int j;
+    for(j = 0; j < 481000; j++){
+      // printf("Bro%i", j);
+      rating_array[ii][j] = -1;
+    }
+  }
+  Movie average array
   double *movie_average_array;
   movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
 

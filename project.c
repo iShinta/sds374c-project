@@ -57,7 +57,7 @@ int main(){
        exit(1);
     }
 
-    // printf("----- Read Files %i -----\n", ii);
+    printf("------ Read Movie %i ------\n", ii);
     char strlink_beg[50] = "../project_data/training_data/mv_";
     if(ii<10){
       strcat(strlink_beg, "000000");
@@ -76,7 +76,7 @@ int main(){
     sprintf(ii_nb, "%d", ii);
     strcat(strlink_beg, ii_nb);
     strcat(strlink_beg, ".txt");
-    printf(strlink_beg);
+    // printf("File read: %s\n", strlink_beg);
 
     fp = fopen(strlink_beg, "r");
     if (fp == NULL)
@@ -85,6 +85,7 @@ int main(){
         exit(2);
     }
 
+    printf("------ Read Lines ------\n", ii);
     // iterations until break
     int i;
     for (i=0;1;i++)
@@ -123,9 +124,11 @@ int main(){
 
 
     }
+
     /* Close file */
     fclose(fp);
 
+    printf("------ Filling Matrix ------\n", ii);
     // Per line, got a string in format: 124105,4,2004-08-05
     // Split per ",". First is UserID, Second is Ratings
     // Saving UserID in Translation table
@@ -154,6 +157,7 @@ int main(){
       rating_array[movie_nb][k] = atoi(pt); //Position is k
     }
 
+    printf("------ Freeing Memory ------\n", ii);
     /* Good practice to free memory */
     for (;i>=0;i--)
         free(words[i]);

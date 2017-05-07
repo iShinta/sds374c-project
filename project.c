@@ -22,6 +22,7 @@ int main(){
   int max_line_len = 100;
   int nb_movies = 20; //4444
   int nb_user = 481000;
+  int max_user = 0;
   /* Allocate lines of text */
   char **words;
   // User translation table
@@ -150,6 +151,7 @@ int main(){
           break;
         }else if(user_array[k] == -1){
           // printf("------ User %i Added ------\n", k);
+          max_user++;
           user_array[k] = atoi(pt);
           break;
         }
@@ -167,6 +169,7 @@ int main(){
         free(words[i]);
     free(words);
   }
+  printf("------ Nb Sampling Users: %i ------\n", max_user);
 
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages

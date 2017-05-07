@@ -100,7 +100,7 @@ int main(){
       char *pt = strtok(words[j], ",");
       printf("First %s\n", pt);
 
-      pt = strtok(words[j], ",");
+      pt = strtok(NULL, ",");
       printf("Second %s\n", pt);
 
       printf("Third %s\n", words[j]);

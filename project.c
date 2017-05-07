@@ -39,7 +39,7 @@ int main(){
     printf("Wesh");
     int j;
     for(j = 0; j < 481000; j++){
-      printf("Bro%i", j)
+      printf("Bro%i", j);
       rating_array[ii][j] = -1;
     }
   }

@@ -49,7 +49,7 @@ int main(){
   // Open the file
   FILE *fp;
 
-  for(ii = 0; ii <= nb_movies ; ii++){ // SHOULD BE 5000
+  for(ii = 1; ii <= nb_movies ; ii++){ // SHOULD BE 5000
     words = (char **)malloc(sizeof(char*)*lines_allocated);
     if (words==NULL)
     {

@@ -16,24 +16,25 @@
 // }
 
 int main(){
-  printf("----- Program Start -----");
+  printf("----- Program Start -----\n");
   printf("----- Initialize Variables -----");
   int lines_allocated = 128;
   int max_line_len = 100;
   /* Allocate lines of text */
-  char **words = (char **)malloc(sizeof(char*)*lines_allocated);
-  if (words==NULL)
-      {
-      fprintf(stderr,"Out of memory (1).\n");
-      exit(1);
-      }
+  char **words;
 
-  printf("----- Read Files -----");
   // Open the file
   FILE *fp;
   int ii;
   for(ii = 0; ii <= 10000 ; ii++){
-    printf("%i", ii);
+    words = (char **)malloc(sizeof(char*)*lines_allocated);
+    if (words==NULL)
+    {
+       fprintf(stderr,"Out of memory (1).\n");
+       exit(1);
+    }
+
+    printf("----- Read Files %i -----\n", ii);
     fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
     if (fp == NULL)
     {

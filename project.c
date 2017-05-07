@@ -143,10 +143,10 @@ int main(){
       int k;
       for(k = 0; k < 481000; k++){
         if(user_array[k] == atoi(pt)){
-          printf("------ User Found ------\n");
+          printf("------ User %i Found ------\n", k);
           break;
         }else if(user_array[k] == -1){
-          printf("------ User Added ------\n");
+          printf("------ User %i Added ------\n", k);
           user_array[k] = atoi(pt);
           break;
         }

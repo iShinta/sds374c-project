@@ -165,11 +165,13 @@ int main(){
 
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
+  int counter;
+  int sum;
   for(ii = 0; ii < nb_movies; ii++){
     printf("------ Movie %i Average ------\n", ii);
     int k;
-    int counter = 0;
-    int sum = 0;
+    counter = 0;
+    sum = 0;
     for(k = 0; k < 481000 ; k++){
       if(rating_array[ii][k] != -1){
         counter++;

@@ -26,7 +26,7 @@ int main(){
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
-  int nb_movies = 10; //4444
+  int nb_movies = 200; //4444
   int nb_user = 481000;
   int max_user = 0;
   /* Allocate lines of text */

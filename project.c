@@ -17,16 +17,27 @@
 
 int main(){
   printf("----- Program Start -----\n");
-  printf("----- Initialize Variables -----");
+  printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
   /* Allocate lines of text */
   char **words;
+  // User translation table
+  int *user_array;
+  user_array = (int *)malloc(sizeof(int)*481000);      // allocate 481000 ints
+  // Ratings array
+  int **rating_array = (int**)malloc(sizeof(int*)*10000); //10000 movies
+  int ii;
+  for(ii = 0; ii <= 10000; ii++){
+    rating_array[ii] = (int*)malloc(sizeof(int)*481000);
+  }
 
+
+  printf("----- Read Files -----\n");
   // Open the file
   FILE *fp;
-  int ii;
-  for(ii = 0; ii <= 10000 ; ii++){
+
+  for(ii = 0; ii <= 10 ; ii++){ // SHOULD BE 10000
     words = (char **)malloc(sizeof(char*)*lines_allocated);
     if (words==NULL)
     {
@@ -34,7 +45,7 @@ int main(){
        exit(1);
     }
 
-    printf("----- Read Files %i -----\n", ii);
+    // printf("----- Read Files %i -----\n", ii);
     fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
     if (fp == NULL)
     {
@@ -81,9 +92,10 @@ int main(){
         /* Close file */
         fclose(fp);
 
-        // int j;
-        // for(j = 0; j < i; j++)
-        //     printf("%s\n", words[j]);
+        // Assign user to translation table and to 2D matrix
+        int j;
+        for(j = 0; j < i; j++)
+            printf("%s\n", words[j]);
 
         /* Good practice to free memory */
         for (;i>=0;i--)
@@ -93,6 +105,7 @@ int main(){
 
   }
 
+  printf("----- Program End -----\n");
   return 0;
 
 

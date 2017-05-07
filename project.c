@@ -58,10 +58,10 @@ int main(){
     }
 
     // printf("----- Read Files %i -----\n", ii);
-    char strlink_beg[50] = "../project_data/training_data/mv_";
-    char strlink_mid[50];
-    char strlink_nb[50];
-    char strlink_end[50];
+    char strlink_beg = "../project_data/training_data/mv_";
+    char strlink_mid;
+    char strlink_nb;
+    char strlink_end;
     if(ii<10){
       strlink_mid = strcat(strlink_beg, "000000");
     }else if(ii<100){

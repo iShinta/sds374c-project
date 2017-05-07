@@ -21,29 +21,34 @@ int main(){
   int lines_allocated = 128;
   int max_line_len = 100;
   int nb_movies = 20; //4444
+  int nb_user = 481000;
   /* Allocate lines of text */
   char **words;
   // User translation table
   int *user_array;
-  user_array = (int *)malloc(sizeof(int)*481000);      // allocate 481000 ints
+  user_array = (int *)malloc(sizeof(int)*nb_user);      // allocate 481000 ints
   int ii;
-  for(ii = 0; ii < 481000; ii++){
+  for(ii = 0; ii < nb_user; ii++){
     user_array[ii] = -1; //Assign default value
   }
   // Ratings array
   int **rating_array = (int**)malloc(sizeof(int*)*nb_movies); //5000 movies
   for(ii = 0; ii < nb_movies; ii++){
-    rating_array[ii] = (int*)malloc(sizeof(int)*481000);
+    rating_array[ii] = (int*)malloc(sizeof(int)*nb_user);
   }
   for(ii = 0; ii < nb_movies; ii++){ //Initialization of all at -1
     int j;
-    for(j = 0; j < 481000; j++){
+    for(j = 0; j < nb_user; j++){
       rating_array[ii][j] = -1;
     }
   }
   // Movie average array
   double *movie_average_array;
   movie_average_array = (double *)malloc(sizeof(double)*nb_movies); //5000 movies
+
+  // User movie average array
+  double *user_movie_average_array;
+  user_movie_average_array = (double *)malloc(sizeof(double)*nb_user); //5000 movies
 
   printf("----- Read Files -----\n");
   // Open the file
@@ -139,7 +144,7 @@ int main(){
       //printf("First %s\n", pt);
       //Saving to Translation Table
       int k;
-      for(k = 0; k < 481000; k++){
+      for(k = 0; k < nb_user; k++){
         if(user_array[k] == atoi(pt)){
           // printf("------ User %i Found ------\n", k);
           break;
@@ -172,7 +177,7 @@ int main(){
     int k;
     counter = 0;
     sum = 0;
-    for(k = 0; k < 481000 ; k++){
+    for(k = 0; k < nb_user ; k++){
       if(rating_array[ii][k] != -1){
         counter++;
         sum+=rating_array[ii][k];
@@ -180,23 +185,25 @@ int main(){
     }
     printf("Movie Sum: %i\n", sum);
     printf("Movie Counter: %i\n", counter);
-    printf("Movie Average (Calcul): %f\n", (double)sum/(double)counter);
     movie_average_array[ii] = (double)sum/counter;
     printf("Movie Average: %f\n", movie_average_array[ii]);
   }
 
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
-  for(ii = 0; ii < 481000; ii++){ //Go through users
-    //printf("------ User %i Average ------\n", ii);
+  for(ii = 0; ii < nb_user; ii++){ //Go through users
+    printf("------ User %i Average ------\n", ii);
     int k;
-    int sum;
-    int count;
+    int sum = 0;
+    int count = 0;
     for(k = 0; k < nb_movies; k++){
       if(rating_array[k][ii] != -1){
+        count++;
         sum += rating_array[k][ii];
       }
     }
+    user_movie_average_array[ii] = (double)sum/count;
+    printf("User Movie Average: %f\n", user_movie_average_array[ii]);
   }
 
   //Prediction

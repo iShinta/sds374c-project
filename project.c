@@ -34,7 +34,7 @@ int main(){
   for(ii = 0; ii <= 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
   }
-  for(ii = 0; ii <= 10000; ii++){ //Initialization of all at -1
+  for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
     int j;
     for(j = 0; j < 481000; j++){
       rating_array[ii][j] = -1;

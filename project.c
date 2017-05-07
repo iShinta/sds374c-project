@@ -49,7 +49,7 @@ int main(){
   // Open the file
   FILE *fp;
 
-  for(ii = 1; ii <= nb_movies ; ii++){ // SHOULD BE 5000
+  for(ii = 1; ii < nb_movies ; ii++){ // Starts at 1 because no movie 0
     words = (char **)malloc(sizeof(char*)*lines_allocated);
     if (words==NULL)
     {
@@ -121,8 +121,6 @@ int main(){
         for (j=strlen(words[i])-1;j>=0 && (words[i][j]=='\n' || words[i][j]=='\r');j--)
           ;
           words[i][j+1]='\0';
-
-
     }
 
     /* Close file */
@@ -158,7 +156,7 @@ int main(){
       rating_array[movie_nb][k] = atoi(pt); //Position is k
     }
 
-    // printf("------ Freeing Memory ------\n", ii);
+    printf("------ Freeing Memory ------\n", ii);
     /* Good practice to free memory */
     for (;i>=0;i--)
         free(words[i]);
@@ -184,7 +182,19 @@ int main(){
     printf("Movie Average: %d\n", movie_average_array[ii]);
   }
 
+  printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
+  for(ii = 0; ii < 481000; ii++){ //Go through users
+    printf("------ User %i Average ------\n", ii);
+    int k;
+    int sum;
+    int count;
+    for(k = 0; k < nb_movies; k++){
+      if(rating_array[k][ii] != -1){
+        sum += rating_array[k][ii];
+      }
+    }
+  }
 
   //Prediction
 

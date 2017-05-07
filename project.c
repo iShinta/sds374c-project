@@ -299,7 +299,7 @@ int main(){
     int movie_score = movie_average_array[movie_id_pred];
 
     //Add User's Offset
-    printf("Prediction for user %i is %i\n", atoi(words[j]), movie_score + user_movie_average_array[k]);
+    printf("Prediction for user %i is %f\n", atoi(words[j]), movie_score + user_movie_average_array[k]);
   }
 
   printf("----- Program End -----\n");

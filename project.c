@@ -109,11 +109,11 @@ int main(){
       //Saving to Translation Table
       int k;
       for(k = 0; k < 481000; k++){
-        if(user_array[k] == pt){
+        if(*user_array[k] == pt){
           printf("Found");
           break;
-        }else if(user_array[k] == -1){
-          user_array[k] = pt;
+        }else if(*user_array[k] == -1){
+          *user_array[k] = pt;
           break;
         }
       }

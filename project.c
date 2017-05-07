@@ -25,9 +25,12 @@ int main(){
   // User translation table
   int *user_array;
   user_array = (int *)malloc(sizeof(int)*481000);      // allocate 481000 ints
+  int ii;
+  for(ii = 0; ii < 481000; ii++){
+    user_array[ii] = -1; //Assign default value
+  }
   // Ratings array
   int **rating_array = (int**)malloc(sizeof(int*)*10000); //10000 movies
-  int ii;
   for(ii = 0; ii <= 10000; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
   }
@@ -94,12 +97,29 @@ int main(){
     /* Close file */
     fclose(fp);
 
-    // Assign user to translation table and to 2D matrix
+    // Per line, got a string in format: 124105,4,2004-08-05
+    // Split per ",". First is UserID, Second is Ratings
+    // Saving UserID in Translation table
+    // Assign Rating 2D matrix with new UserID
     int j;
     for(j = 0; j < i; j++){
+      //User
       char *pt = strtok(words[j], ",");
-      printf("First %s\n", pt);
+      //printf("First %s\n", pt);
+      //Saving to Translation Table
+      int k;
+      for(k = 0; k < 481000; k++){
+        if(user_array[k] == pt){
+          printf("Found");
+          break;
+        }else if(user_array[k] == -1){
+          user_array[k] = pt;
+          break;
+        }
+      }
+      printf("Indice %i\n", k);
 
+      //Rating
       pt = strtok(NULL, ",");
       printf("Second %s\n", pt);
 

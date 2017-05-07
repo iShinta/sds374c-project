@@ -20,6 +20,7 @@ int main(){
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
+  int nb_movies = 5000;
   /* Allocate lines of text */
   char **words;
   // User translation table
@@ -30,9 +31,9 @@ int main(){
     user_array[ii] = -1; //Assign default value
   }
   // Ratings array
-  int **rating_array = (int**)malloc(sizeof(int*)*10000*2); //10000 movies
-  for(ii = 0; ii < 10000; ii++){
-    rating_array[ii] = (int*)malloc(sizeof(int)*481000*2);
+  int **rating_array = (int**)malloc(sizeof(int*)*nb_movies); //5000 movies
+  for(ii = 0; ii < nb_movies; ii++){
+    rating_array[ii] = (int*)malloc(sizeof(int)*481000);
     // if(rating_array[ii] == NULL)
     // {
     //     fprintf(stderr, "out of memory\n");
@@ -40,7 +41,7 @@ int main(){
     // }
   }
   // printf("Hello");
-  for(ii = 0; ii < 10000; ii++){ //Initialization of all at -1
+  for(ii = 0; ii < nb_movies; ii++){ //Initialization of all at -1
     printf("Wesh%i\n", ii);
     int j;
     for(j = 0; j < 481000; j++){
@@ -50,13 +51,13 @@ int main(){
   }
   // Movie average array
   double *movie_average_array;
-  movie_average_array = (double *)malloc(sizeof(double)*10000); //10000 movies
+  movie_average_array = (double *)malloc(sizeof(double)*nb_movies); //5000 movies
 
   printf("----- Read Files -----\n");
   // Open the file
   FILE *fp;
 
-  for(ii = 0; ii <= 10 ; ii++){ // SHOULD BE 10000
+  for(ii = 0; ii <= nb_movies ; ii++){ // SHOULD BE 5000
     words = (char **)malloc(sizeof(char*)*lines_allocated);
     if (words==NULL)
     {
@@ -149,7 +150,7 @@ int main(){
 
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
-  for(ii = 0; ii < 10000; ii++){
+  for(ii = 0; ii < nb_movies; ii++){
     int k;
     int counter = 0;
     int sum = 0;

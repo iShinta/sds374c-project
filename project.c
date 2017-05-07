@@ -232,7 +232,7 @@ int main(){
      exit(1);
   }
 
-  fp2 = fopen("../project_data/probe.txt", "r");
+  fp2 = fopen("probe.txt", "r");
   if (fp2 == NULL)
   {
       fprintf(stderr,"Error opening file.\n");
@@ -281,7 +281,7 @@ int main(){
   fclose(fp2);
 
   int j;
-  for(j = 0; j < i; j++){
+  for(j = 1; j < i; j++){
     printf("%s\n", words[j]);
   }
 

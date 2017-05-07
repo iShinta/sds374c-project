@@ -34,18 +34,10 @@ int main(){
   int **rating_array = (int**)malloc(sizeof(int*)*nb_movies); //5000 movies
   for(ii = 0; ii < nb_movies; ii++){
     rating_array[ii] = (int*)malloc(sizeof(int)*481000);
-    // if(rating_array[ii] == NULL)
-    // {
-    //     fprintf(stderr, "out of memory\n");
-    //     exit(1);
-    // }
   }
-  // printf("Hello");
   for(ii = 0; ii < nb_movies; ii++){ //Initialization of all at -1
-    printf("Wesh%i\n", ii);
     int j;
     for(j = 0; j < 481000; j++){
-      // printf("Bro%i", j);
       rating_array[ii][j] = -1;
     }
   }
@@ -155,12 +147,13 @@ int main(){
     int counter = 0;
     int sum = 0;
     for(k = 0; k < 481000 ; k++){
-      if(rating_array[ii][k] != 0){
+      if(rating_array[ii][k] != -1){
         counter++;
         sum+=rating_array[ii][k];
       }
     }
     movie_average_array[ii] = (double)sum/counter;
+    printf("Movie Average: %d", movie_average_array[ii]);
   }
 
 

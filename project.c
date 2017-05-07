@@ -85,7 +85,7 @@ int main(){
         exit(2);
     }
 
-    printf("------ Read Lines ------\n", ii);
+    printf("------ Read Lines ------\n");
     // iterations until break
     int i;
     for (i=0;1;i++)
@@ -128,7 +128,7 @@ int main(){
     /* Close file */
     fclose(fp);
 
-    printf("------ Filling Matrix ------\n", ii);
+    printf("------ Filling Matrix ------\n");
     // Per line, got a string in format: 124105,4,2004-08-05
     // Split per ",". First is UserID, Second is Ratings
     // Saving UserID in Translation table
@@ -143,9 +143,10 @@ int main(){
       int k;
       for(k = 0; k < 481000; k++){
         if(user_array[k] == atoi(pt)){
-          //printf("Found");
+          printf("------ User Found ------\n");
           break;
         }else if(user_array[k] == -1){
+          printf("------ User Added ------\n");
           user_array[k] = atoi(pt);
           break;
         }
@@ -157,7 +158,7 @@ int main(){
       rating_array[movie_nb][k] = atoi(pt); //Position is k
     }
 
-    printf("------ Freeing Memory ------\n", ii);
+    // printf("------ Freeing Memory ------\n", ii);
     /* Good practice to free memory */
     for (;i>=0;i--)
         free(words[i]);
@@ -167,6 +168,7 @@ int main(){
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
   for(ii = 0; ii < nb_movies; ii++){
+    printf("------ Movie %i Average ------\n", ii);
     int k;
     int counter = 0;
     int sum = 0;

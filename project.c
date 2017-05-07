@@ -34,7 +34,7 @@ int main(){
   int ii;
   for(ii = 0; ii <= 10000 ; ii++){
     printf("%i", ii);
-    *fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
+    fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
     if (fp == NULL)
     {
         fprintf(stderr,"Error opening file.\n");

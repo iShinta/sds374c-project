@@ -53,7 +53,7 @@ int main(){
         exit(2);
     }
 
-    // 2 iterations
+    // iterations until break
     int i;
     for (i=0;1;i++)
     {
@@ -97,6 +97,9 @@ int main(){
     // Assign user to translation table and to 2D matrix
     int j;
     for(j = 0; j < i; j++)
+        char *pt = strtok(words[j], ",");
+        printf("%s\n", pt);
+
         printf("%s\n", words[j]);
 
     /* Good practice to free memory */

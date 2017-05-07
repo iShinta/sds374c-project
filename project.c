@@ -58,7 +58,28 @@ int main(){
     }
 
     // printf("----- Read Files %i -----\n", ii);
-    fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
+    char strlink_beg[50] = "../project_data/training_data/mv_";
+    char strlink_mid[50];
+    char strlink_nb[50];
+    char strlink_end[50];
+    if(ii<10){
+      strlink_mid = strcat(strlink_beg, "000000");
+    }else if(ii<100){
+      strlink_mid = strcat(strlink_beg, "00000");
+    }else if(ii<1000){
+      strlink_mid = strcat(strlink_beg, "0000");
+    }else if(ii<10000){
+      strlink_mid = strcat(strlink_beg, "000");
+    }else if(ii<100000){
+      strlink_mid = strcat(strlink_beg, "00");
+    }else if(ii<1000000){
+      strlink_mid = strcat(strlink_beg, "0");
+    }
+    strlink_nb = strcat(strlink_mid, ii);
+    strlink_end = strcat(strlink_nb, ".txt");
+    printf(strlink_end);
+
+    fp = fopen(strlink_end, "r");
     if (fp == NULL)
     {
         fprintf(stderr,"Error opening file.\n");
@@ -152,8 +173,10 @@ int main(){
         sum+=rating_array[ii][k];
       }
     }
+    printf("Movie Sum: %i\n", sum);
+    printf("Movie Counter: %i\n", counter);
     movie_average_array[ii] = (double)sum/counter;
-    printf("Movie Average: %d", movie_average_array[ii]);
+    printf("Movie Average: %d\n", movie_average_array[ii]);
   }
 
 

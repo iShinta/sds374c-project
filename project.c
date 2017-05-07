@@ -172,8 +172,11 @@ int main(){
 
   printf("----- Calculate Movie Averages -----\n");
   //Calculate Movie averages
+  int tt_counter = 0;
   int counter;
+  int tt_sum = 0;
   int sum;
+  double tt_average;
   for(ii = 0; ii < nb_movies; ii++){
     printf("------ Movie %i Average ------\n", ii);
     int k;
@@ -185,11 +188,18 @@ int main(){
         sum+=rating_array[ii][k];
       }
     }
+
+    tt_counter += counter;
+    tt_sum += sum;
+
     printf("Movie Sum: %i\n", sum);
     printf("Movie Counter: %i\n", counter);
     movie_average_array[ii] = (double)sum/counter;
     printf("Movie Average: %f\n", movie_average_array[ii]);
   }
+
+  // Global Average
+  tt_average = (double)tt_sum/tt_counter;
 
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
@@ -206,8 +216,8 @@ int main(){
     }
     printf("User Movie Sum: %i\n", sum);
     printf("User Movie Counter: %i\n", count);
-    user_movie_average_array[ii] = (double)sum/count;
-    printf("User Movie Average: %f\n", user_movie_average_array[ii]);
+    user_movie_average_array[ii] = (double)sum/count - tt_average; // Offset
+    printf("User Movie Offset: %f / %f\n", user_movie_average_array[ii], tt_average);
   }
 
   //Prediction

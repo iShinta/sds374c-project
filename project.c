@@ -33,7 +33,7 @@ int main(){
   FILE *fp;
   int ii;
   for(ii = 0; ii <= 10000 ; ii++){
-    printf(ii);
+    fprintf(ii);
     *fp = fopen("../project_data/training_data/mv_0000001.txt", "r");
     if (fp == NULL)
     {

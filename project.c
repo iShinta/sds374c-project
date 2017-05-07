@@ -281,7 +281,10 @@ int main(){
   fclose(fp2);
 
   int j;
+  int movie_id_pred = 1; //Change to any movie index (here 1)
+  printf("----- Prediction Movie %i -----\n", movie_id_pred);
   for(j = 1; j < i; j++){
+    // printf("------ Prediction User %i ------\n", atoi(words[j]));
 
     //Find user
     int k;
@@ -292,7 +295,11 @@ int main(){
       }
     }
 
-    printf("%i\n", atoi(words[j]));
+    //Find average movie score
+    int movie_score = movie_average_array[movie_id_pred];
+
+    //Add User's Offset
+    printf("Prediction for user %i is %i\n", atoi(words[j]), movie_score + user_movie_average_array[k]);
   }
 
   printf("----- Program End -----\n");

@@ -180,9 +180,9 @@ int main(){
     }
     printf("Movie Sum: %i\n", sum);
     printf("Movie Counter: %i\n", counter);
-    printf("Movie Average (Calcul): %d\n", (double)sum/(double)counter);
+    printf("Movie Average (Calcul): %f\n", (double)sum/(double)counter);
     movie_average_array[ii] = (double)sum/counter;
-    printf("Movie Average: %d\n", movie_average_array[ii]);
+    printf("Movie Average: %f\n", movie_average_array[ii]);
   }
 
   printf("----- Calculate User Offsets -----\n");

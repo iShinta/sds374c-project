@@ -282,6 +282,16 @@ int main(){
 
   int j;
   for(j = 1; j < i; j++){
+
+    //Find user
+    int k;
+    for(k = 0; k < max_user; k++){
+      if(user_array[k] == atoi(words[j])){
+        printf("Trouve!");
+        break;
+      }
+    }
+
     printf("%i\n", atoi(words[j]));
   }
 

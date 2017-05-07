@@ -185,7 +185,7 @@ int main(){
   printf("----- Calculate User Offsets -----\n");
   //Calculate User Offset
   for(ii = 0; ii < 481000; ii++){ //Go through users
-    printf("------ User %i Average ------\n", ii);
+    //printf("------ User %i Average ------\n", ii);
     int k;
     int sum;
     int count;

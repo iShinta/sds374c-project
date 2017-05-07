@@ -20,7 +20,7 @@ int main(){
   printf("----- Initialize Variables -----\n");
   int lines_allocated = 128;
   int max_line_len = 100;
-  int nb_movies = 4444;
+  int nb_movies = 30; //4444
   /* Allocate lines of text */
   char **words;
   // User translation table
@@ -183,7 +183,6 @@ int main(){
     movie_average_array[ii] = (double)sum/counter;
     printf("Movie Average: %d\n", movie_average_array[ii]);
   }
-
 
   //Calculate User Offset
 

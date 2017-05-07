@@ -93,7 +93,6 @@ int main(){
         fclose(fp);
 
         // Assign user to translation table and to 2D matrix
-        int j;
         for(j = 0; j < i; j++)
             printf("%s\n", words[j]);
 

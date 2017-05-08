@@ -155,13 +155,14 @@ int main(){
 
       // User not found
       if(trouve == 0){
-        printf("Add user at %i\n", max_user);
+        // printf("Add user at %i\n", max_user);
         user_array[max_user] = atoi(pt);
         trouve = max_user;
         max_user++;
-      }else{
-        printf("User found at %i\n", trouve);
       }
+      // else{
+      //   // printf("User found at %i\n", trouve);
+      // }
       // else if(user_array[k] == -1){
       //   // printf("------ User %i Added ------\n", k);
       //   max_user++;

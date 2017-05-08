@@ -146,7 +146,7 @@ int main(){
       int k;
       trouve = 0;
       for(k = 0; k < nb_user; k++){
-        if(user_array[k] == atoi(pt)){
+        if(user_array[k] == atoi(pt)){ //User found
           // printf("------ User %i Found ------\n", k);
           // break;
           trouve = k;
@@ -157,7 +157,10 @@ int main(){
       if(trouve != 0){
         printf("Add user at %i", max_user);
         user_array[max_user] = atoi(pt);
+        trouve = max_user;
         max_user++;
+      }else{
+        printf("User found at %i", trouve)
       }
       // else if(user_array[k] == -1){
       //   // printf("------ User %i Added ------\n", k);

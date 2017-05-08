@@ -4,18 +4,6 @@
 #include <time.h>
 #include <omp.h>
 
-// void importdata(){
-//
-// }
-
-// void runalgo(){
-//
-// }
-//
-// void runparallelalgo(){
-//
-// }
-
 int main(){
   double i0, i1, i2, i3, i4, i5, i6;
   printf("----- Program Start -----\n");
@@ -148,28 +136,39 @@ int main(){
     // Assign Rating 2D matrix with new UserID
     // j is the current line, i is the total number of lines
     int j;
+    int trouve;
     for(j = 1; j < i; j++){ //Don't include 0 which is the first line which is the ID of the movie
       //User
       char *pt = strtok(words[j], ",");
+
       //printf("First %s\n", pt);
       //Saving to Translation Table
       int k;
+      trouve = 0;
       for(k = 0; k < nb_user; k++){
         if(user_array[k] == atoi(pt)){
           // printf("------ User %i Found ------\n", k);
-          break;
-        }else if(user_array[k] == -1){
-          // printf("------ User %i Added ------\n", k);
-          max_user++;
-          user_array[k] = atoi(pt);
-          break;
+          // break;
+          trouve = k;
         }
       }
+
+      // User not found
+      if(trouve != 0){
+        user_array[max_user] = atoi(pt);
+        max_user++;
+      }
+      // else if(user_array[k] == -1){
+      //   // printf("------ User %i Added ------\n", k);
+      //   max_user++;
+      //   user_array[k] = atoi(pt);
+      //   break;
+      // }
 
       //Rating
       pt = strtok(NULL, ",");
       int movie_nb = atoi(strtok(words[0], ":"));
-      rating_array[movie_nb][k] = atoi(pt); //Position is k
+      rating_array[movie_nb][trouve] = atoi(pt); //Position is trouve
     }
 
     printf("------ Freeing Memory ------\n", ii);

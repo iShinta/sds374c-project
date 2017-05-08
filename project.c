@@ -160,7 +160,7 @@ int main(){
         trouve = max_user;
         max_user++;
       }else{
-        printf("User found at %i", trouve)
+        printf("User found at %i", trouve);
       }
       // else if(user_array[k] == -1){
       //   // printf("------ User %i Added ------\n", k);
